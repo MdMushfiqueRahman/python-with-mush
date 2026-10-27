@@ -1,0 +1,82 @@
+# Shopping Cart Project Using Python Fundamental
+
+# Store the items
+shopping_cart = []
+
+while True:
+
+    print('''
+====================
+    Shopping Cart
+====================
+
+1. Add Item
+2. Remove Item
+3. View Cart
+4. Search Item
+5. Count Items
+6. Exit
+
+''')
+
+    user_choice = input("Choose an Option: ")
+
+    # 1. Adding Item
+    if user_choice == '1':
+        new_item = input("Enter Item Name: ").strip().lower()
+
+        if new_item == "":
+            print("Item name cannot be empty!")
+
+        elif new_item not in shopping_cart:
+            shopping_cart.append(new_item)
+            print(f"{new_item} added successfully!")
+
+        else:
+            print("Item Already Added!")
+
+    # 2. Removing Item
+    elif user_choice == '2':
+        remove_item = input("Enter Item Name: ").strip().lower()
+
+        if remove_item in shopping_cart:
+            shopping_cart.remove(remove_item)
+            print(f"{remove_item} successfully removed!")
+
+        else:
+            print("Item not found in your cart!")
+
+    # 3. View Cart
+    elif user_choice == '3':
+
+        if not shopping_cart:
+            print("Your Cart Is Empty!")
+
+        else:
+            print("\nYour Shopping Cart:")
+
+            for item in shopping_cart:
+                print(f"Your Item: {item}")
+
+    # 4. Search Item
+    elif user_choice == '4':
+        search_item = input("Enter Search Item Name: ").strip().lower()
+
+        if search_item in shopping_cart:
+            print(f"{search_item} has been found in your cart!")
+
+        else:
+            print("Sorry, item could not be found!")
+
+    # 5. Count Items
+    elif user_choice == '5':
+        print(f"Total Items: {len(shopping_cart)}")
+
+    # 6. Exit
+    elif user_choice == '6':
+        print("Thank you for using Shopping Cart!")
+        break
+
+    # Invalid Option
+    else:
+        print("Invalid Option! Please choose between 1 and 6.")
